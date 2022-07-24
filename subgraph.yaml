@@ -1,0 +1,27 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Hyro
+    network: matic
+    source:
+      address: "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063"
+      abi: Hyro
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Hyros
+      abis:
+        - name: Hyro
+          file: ./abis/Hyro.json
+      eventHandlers:
+        - event: Mint(indexed address, uint, uint)
+          handler: handleMint
+        - event: Burn(indexed address, uint, uint)
+          handler: handleMint
+        - event: Swap(uint uint, address, address)
+          handler: handleSwap
+      file: ./src/hyro.ts

@@ -1,0 +1,8 @@
+type Hyros   @entity {
+  id: ID!
+  totalDeposited: BigInt!
+  totalEarned: BigInt!
+  hourlyApr: BigInt!
+  dailyApr: BigInt!
+  monthlyApr: BigInt!
+}
